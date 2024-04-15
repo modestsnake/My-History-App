@@ -1,0 +1,46 @@
+package com.example.myassignment1
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val eliza1 = findViewById<ImageView>(R.id.eliza1)
+        val Interseller = findViewById<Button>(R.id.Interseller)
+        val dayone = findViewById<ImageView>(R.id.dayone)
+        val spacer = findViewById<Button>(R.id.spacer)
+        val inception = findViewById<EditText>(R.id.inception)
+        val textView = findViewById<TextView>(R.id.textView2)
+
+        spacer.setOnClickListener { inception.text.clear() }
+        Interseller.setOnClickListener {
+
+            val age = inception.text.toString().toIntOrNull()
+
+            if (age != null && age in 20..70) {
+                when (age) {
+                    50 -> textView.text = "You are 50 years old, same age as when Michael Jackson died."
+                    48 -> textView.text = "You are 48 years old, same age as when Whitney Houston died."
+                    53 -> textView.text = "You are 53 years old, same age as when George Michael died."
+                    33 -> textView.text = "You are 33 years old, same age as when Nipsey Hussle died."
+                    28 -> textView.text = "You are 28 years old, same age as when Takeoff died."
+                    30 -> textView.text = "You are 30 years old, same age as when Eazy E died."
+                    20 -> textView.text = "You are 20 years old, same age as when XXXTentacion died."
+                    43 -> textView.text = "You are 43 years old, same age as when Chadwick Boseman died."
+                    41 -> textView.text = "You are 41 years old, same age as when Nicholas Cordero died."
+                    62 -> textView.text = "You are 62 years old, same age as when Tommy Lister Junior died."
+                    else -> textView.text = "No Record, entering another age number between 20 and 70"
+                }
+            } else {
+                textView.text = "No Record, can only enter age between 20 and 70."
+            }
+        }
+    }
+}
